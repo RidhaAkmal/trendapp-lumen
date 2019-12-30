@@ -15,11 +15,15 @@ class CreateTrendsTable extends Migration
     {
         Schema::create('trends', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('fashion_item');
+            $table->string('kota')->nullable();
             $table->string('image_url')->nullable();
-            $table->string('kota');
+            $table->string('fashion_item');
+            $table->double('accuracy');
+            
             $table->timestamps();
         });
+
+        
     }
 
     /**

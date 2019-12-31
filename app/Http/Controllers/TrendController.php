@@ -57,10 +57,22 @@ class TrendController extends Controller
                 'msg' => 'file not found'
             ]);
         }
-
-
-        
     }
 
-    
+    public function getTrends(){
+        $trends = DB::table('trends')->get();
+        if (sizeof($trends) == 0){
+            $trend = null;
+        }
+        
+        return response()->json(['data' => $trends]);
+    }
+
+    public function getTrendById($id){
+        $trend = DB::table('trends')->where('id',$id)->get();
+        if (sizeof($trend) == 0){
+            $trend = null;
+        }
+        return response()->json(['data' => $trend[0]]);
+    }
 }

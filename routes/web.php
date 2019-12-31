@@ -16,3 +16,5 @@ $router->get('/', function () use ($router) {
 });
 
 $router->post('/insert', 'TrendController@insert');
+$router->get('/trend', 'TrendController@getTrends');
+$router->get('/trend/{id}','TrendController@getTrendById');
